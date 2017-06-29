@@ -1,8 +1,11 @@
 {
   "name": "wix-react-native-storybook-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Server to host storybook for react native apps",
   "main": "index.js",
+  "bin": {
+    "storybook": "./node_modules/.bin/storybook"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "storybook start -p 7007 -i -r --skip-packager -e PRODUCTION -c ./server"
