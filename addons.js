@@ -1,6 +1,6 @@
 import React from 'react';
 import addons from '@storybook/addons';
-addons.setPreview(() => <div></div>);
+addons.setPreview(() => React.createElement('div'));
 
 import '@storybook/addon-knobs/register';
 import 'storybook-usage/register';
