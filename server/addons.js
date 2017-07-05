@@ -1,1 +1,1 @@
-import '../addons';
+require('../addons');

@@ -1,7 +1,7 @@
-import React from 'react';
-import addons from '@storybook/addons';
-addons.setPreview(() => React.createElement('div'));
+const React = require('react');
+const addons = require('@storybook/addons').default;
+addons.setPreview(function setPreview() { return React.createElement('div')});
 
-import '@storybook/addon-knobs/register';
-import 'storybook-usage/register';
+require('@storybook/addon-knobs/register');
+require('storybook-usage/register');
 //import 'react-storybook-addon-docgen/dist/register';
