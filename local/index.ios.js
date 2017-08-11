@@ -1,4 +1,3 @@
-import {Navigation} from 'react-native-navigation';
 import {getStorybook} from 'wix-react-native-storybook-server';
 
 const StorybookUI = getStorybook(() => {
