@@ -56,7 +56,8 @@ var QRCodeComponent = function (_PureComponent) {
     value: function render() {
 
       var secured = this.props.secured || window.location.protocol === 'https:';
-      var value = [this.props.host || window.location.hostname, this.props.port || window.location.port, this.props.pairedId, secured ? '1' : '0'].join('|');
+      var port = this.props.port !== false ? (this.props.port || window.location.port) : 'false';
+      var value = [this.props.host || window.location.hostname, port, this.props.pairedId, secured ? 'true' : 'false'].join('|');
 
       return _react2.default.createElement(
         'div',
