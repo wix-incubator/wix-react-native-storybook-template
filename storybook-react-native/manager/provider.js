@@ -80,7 +80,12 @@ var ReactProvider = function (_Provider) {
       _this.channel = (0, _channelWebsocket2.default)({ url: url });
       _addons2.default.setChannel(_this.channel);
 
-      _this.channel.emit('channelCreated', { pairedId: _this.pairedId });
+      _this.channel.emit('channelCreated', {
+        pairedId: _this.pairedId,
+        secured: secured,
+        host: options.host,
+        port: options.port,
+      });
     }
     return _this;
   }

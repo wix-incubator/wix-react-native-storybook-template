@@ -53,7 +53,10 @@ var QRCodePanel = function (_React$PureComponent) {
     var _this = (0, _possibleConstructorReturn3.default)(this, (_ref = QRCodePanel.__proto__ || (0, _getPrototypeOf2.default)(QRCodePanel)).call.apply(_ref, [this, props].concat(args)));
 
     _this.state = {
-      pairedId: null
+      pairedId: null,
+      host: null,
+      port: null,
+      secured: false,
     };
 
     _this._actionListener = function (action) {
@@ -76,7 +79,10 @@ var QRCodePanel = function (_React$PureComponent) {
     key: 'addAction',
     value: function addAction(data) {
       this.setState({
-        pairedId: data.pairedId
+        pairedId: data.pairedId,
+        host: data.host,
+        port: data.port,
+        secured: data.secured,
       });
     }
   }, {
