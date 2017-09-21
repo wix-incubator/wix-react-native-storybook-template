@@ -1,6 +1,6 @@
 {
   "name": "wix-react-native-storybook-server",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Server to host storybook for react native apps",
   "main": "index.js",
   "bin": {
@@ -26,6 +26,6 @@
     "react-dom": "^15.6.1",
     "storybook-addon-smart-knobs": "^3.0.1",
     "storybook-usage": "^3.0.0",
-    "react-storybook-addon-docgen": "https://github.com/Gongreg/react-storybook-addon-docgen"
+    "storybook-addon-docgen": "^4.0.0"
   }
 }

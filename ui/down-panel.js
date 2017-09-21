@@ -27,6 +27,7 @@ class DownPanel extends Component {
           display: 'flex',
           flexDirection: 'column',
           flexGrow: 1,
+          borderRight: '1px solid #f7f7f7',
         }}>
           <div style={style.content}>{this.renderPanel('storybook-addon-docgen/doc-panel')}</div>
           <div style={{ display: 'flex', border: '1px solid #f7f7f7'}}></div>
