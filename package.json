@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "storybook start -p 7007 -i -r --skip-packager -e PRODUCTION -c ./server"
+    "start": "storybook start -p 7007 -i -r --skip-packager -e PRODUCTION -c ./server",
+    "develop": "storybook start -p 7007 --skip-packager -c ./server"
   },
   "author": "Gytis Vinclovas",
   "license": "MIT",
@@ -24,6 +25,7 @@
     "react": "16.0.0-alpha.6",
     "react-dom": "^15.6.1",
     "storybook-addon-smart-knobs": "^3.0.1",
-    "storybook-usage": "^3.0.0"
+    "storybook-usage": "^3.0.0",
+    "react-storybook-addon-docgen": "https://github.com/Gongreg/react-storybook-addon-docgen"
   }
 }

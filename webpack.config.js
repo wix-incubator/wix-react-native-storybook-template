@@ -16,7 +16,11 @@ module.exports = function getConfig(config) {
         new webpack.NormalModuleReplacementPlugin(
           /node_modules\/@storybook\/ui\/dist\/modules\/ui\/components\/layout\/index.js/,
           path.resolve(__dirname, './ui/layout.js')
-        )
+        ),
+        new webpack.NormalModuleReplacementPlugin(
+          /node_modules\/@storybook\/channels\/dist\/index.js/,
+          path.resolve(__dirname, './channels/index.js')
+        ),
       ],
       module: Object.assign(
         {},

@@ -28,6 +28,15 @@ class DownPanel extends Component {
           flexDirection: 'column',
           flexGrow: 1,
         }}>
+          <div style={style.content}>{this.renderPanel('storybook-addon-docgen/doc-panel')}</div>
+          <div style={{ display: 'flex', border: '1px solid #f7f7f7'}}></div>
+          <div style={style.content}>{this.renderPanel('storybook/rn-pair/panel')}</div>
+        </div>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flexGrow: 1,
+        }}>
           <div style={style.content}>{this.renderPanel('storybooks/storybook-addon-knobs')}</div>
           <div style={{ display: 'flex', border: '1px solid #f7f7f7'}}></div>
           <div style={style.content}>{this.renderPanel('storybook-usage/usage-panel')}</div>
