@@ -1,5 +1,5 @@
 import {Usage} from 'storybook-usage';
-import docs from 'react-storybook-addon-docgen';
+import docs from 'storybook-addon-docgen';
 import {withKnobsOptions} from '@storybook/addon-knobs';
 import {addDecorator} from '@storybook/react-native';
 import {withSmartKnobs} from 'storybook-addon-smart-knobs';
