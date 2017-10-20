@@ -1,10 +1,11 @@
 {
   "name": "wix-react-native-storybook-server",
-  "version": "1.0.19",
+  "version": "1.1.0",
   "description": "Server to host storybook for react native apps",
   "main": "index.js",
   "bin": {
-    "storybook": "./node_modules/.bin/storybook"
+    "storybook": "./node_modules/.bin/storybook",
+    "wix-storybook-install": "./bin/dev-install.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,11 +22,12 @@
     "babel-preset-es2016": "^6.24.1",
     "babel-preset-react-native": "^2.0.0",
     "es6-symbol": "^3.1.1",
+    "ncp": "^2.0.0",
     "qrcode.react": "^0.7.1",
     "react": "16.0.0-alpha.6",
     "react-dom": "^15.6.1",
+    "storybook-addon-docgen": "^4.0.0",
     "storybook-addon-smart-knobs": "^3.0.1",
-    "storybook-usage": "^3.0.0",
-    "storybook-addon-docgen": "^4.0.0"
+    "storybook-usage": "^3.0.0"
   }
 }
