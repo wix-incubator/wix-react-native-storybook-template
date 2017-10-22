@@ -30,5 +30,8 @@
     "storybook-addon-docgen": "^4.0.0",
     "storybook-addon-smart-knobs": "^3.0.1",
     "storybook-usage": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.2"
   }
 }
