@@ -27,5 +27,5 @@ export function startStorybookWithNavigation(...args) {
   });
 
 
-  setTimeout(() => {require('loki/configure-react-native');}, 1500);
+  require('loki/configure-react-native');
 }
