@@ -44,6 +44,7 @@ var Server = function () {
     this.httpServer = _http2.default.createServer();
     this.expressApp = (0, _express2.default)();
     this.expressApp.use((0, _middleware2.default)(options));
+    this.expressApp.use('/static', _express2.default.static('static'));
     this.httpServer.on('request', this.expressApp);
     this.wsServer = new _ws2.default.Server({ server: this.httpServer });
     this.wsServer.on('connection', function (s, req) {

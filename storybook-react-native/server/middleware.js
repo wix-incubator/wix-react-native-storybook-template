@@ -26,22 +26,22 @@ exports.default = function (_ref) {
     publicPath = publicPath.slice(1);
   }
 
-  var compiler = (0, _webpack2.default)(config);
-  var devMiddlewareOptions = {
-    noInfo: true,
-    publicPath: config.output.publicPath,
-    watchOptions: config.watchOptions || {}
-  };
+  //var compiler = (0, _webpack2.default)(config);
+  //var devMiddlewareOptions = {
+  //  noInfo: true,
+  //  publicPath: config.output.publicPath,
+  //  watchOptions: config.watchOptions || {}
+  //};
 
   var router = new _express.Router();
-  var middlewareFn = getMiddleware(configDir);
-  middlewareFn(router);
+  //var middlewareFn = getMiddleware(configDir);
+  //middlewareFn(router);
 
-  router.use((0, _webpackDevMiddleware2.default)(compiler, devMiddlewareOptions));
+  //router.use((0, _webpackDevMiddleware2.default)(compiler, devMiddlewareOptions));
 
-  if (!isProd) {
-    router.use((0, _webpackHotMiddleware2.default)(compiler));
-  }
+  //if (!isProd) {
+  //  router.use((0, _webpackHotMiddleware2.default)(compiler));
+  //}
 
   router.get('/', function (req, res) {
     res.send((0, _index2.default)(publicPath, {

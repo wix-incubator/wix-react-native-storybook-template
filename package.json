@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "storybook start -p 7007 -i -r --skip-packager -e PRODUCTION -c ./server",
+    "start": "node ./storybook-react-native/bin/storybook.js start -p ${PORT:-7007} -i -r --skip-packager -e PRODUCTION -c ./server",
     "develop": "storybook start -p 7007 --skip-packager -c ./server"
   },
   "author": "Gytis Vinclovas",
