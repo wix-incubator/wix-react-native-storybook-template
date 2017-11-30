@@ -10,6 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./storybook-react-native/bin/storybook.js start -p ${PORT:-7007} -i -r --skip-packager --secured -e PRODUCTION -c ./server",
+    "prestart": "node ./node_modules/webpack/bin/webpack.js --config ./server/webpack.config.js",
     "develop": "storybook start -p 7007 --skip-packager -c ./server"
   },
   "author": "Gytis Vinclovas",
