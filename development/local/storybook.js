@@ -1,4 +1,4 @@
-import {startStorybookWithNavigation} from 'wix-react-native-storybook-server';
+import {startStorybookWithNavigation} from 'wix-react-native-storybook-server/navigation';
 startStorybookWithNavigation(() => {
   require('../stories/index');
 }, module);
