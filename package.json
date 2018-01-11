@@ -1,10 +1,9 @@
 {
   "name": "wix-react-native-storybook-server",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Server to host storybook for react native apps",
   "main": "index.js",
     "bin": {
-    "storybook": "./node_modules/.bin/storybook",
     "wix-storybook-install": "./bin/dev-install.js"
   },
   "scripts": {
