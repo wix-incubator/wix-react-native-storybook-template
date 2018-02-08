@@ -27,7 +27,7 @@
     "loki": "^0.7.0",
     "ncp": "^2.0.0",
     "qrcode.react": "^0.7.1",
-    "react": "16.0.0-alpha.6",
+    "react": "16.0.0",
     "react-dom": "^15.6.1",
     "storybook-addon-docgen": "^4.0.0",
     "storybook-addon-smart-knobs": "^3.0.1",
