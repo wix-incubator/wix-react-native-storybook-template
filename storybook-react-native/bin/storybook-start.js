@@ -1,67 +1,96 @@
 #!/usr/bin/env node
-'use strict';
+/* eslint-disable no-console */
 
-var _path = require('path');
+import path from 'path';
+import program from 'commander';
+import shelljs from 'shelljs';
+import Server from '../server';
 
-var _path2 = _interopRequireDefault(_path);
+program
+  .option('-h, --host <host>', 'host to listen on')
+  .option('-p, --port <port>', 'port to listen on')
+  .option('--haul <configFile>', 'use haul with config file')
+  .option('--platform <ios|android|all>', 'build platform-specific build')
+  .option('-s, --secured', 'whether server is running on https')
+  .option('-c, --config-dir [dir-name]', 'storybook config directory')
+  .option('-e, --environment [environment]', 'DEVELOPMENT/PRODUCTION environment for webpack')
+  .option('-r, --reset-cache', 'reset react native packager')
+  .option('--skip-packager', 'run only storybook server')
+  .option('-i, --manual-id', 'allow multiple users to work with same storybook')
+  .option('--smoke-test', 'Exit after successful start')
+  .option('--packager-port <packagerPort>', 'Custom packager port')
+  .option('--root [root]', 'Add additional root(s) to be used by the packager in this project')
+  .option('--projectRoots [projectRoots]', 'Override the root(s) to be used by the packager')
+  .parse(process.argv);
 
-var _commander = require('commander');
-
-var _commander2 = _interopRequireDefault(_commander);
-
-var _shelljs = require('shelljs');
-
-var _shelljs2 = _interopRequireDefault(_shelljs);
-
-var _server = require('../server');
-
-var _server2 = _interopRequireDefault(_server);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_commander2.default.option('-h, --host <host>', 'host to listen on').option('-p, --port <port>', 'port to listen on').option('--haul <configFile>', 'use haul with config file').option('-s, --secured', 'whether server is running on https').option('-c, --config-dir [dir-name]', 'storybook config directory').option('-e, --environment [environment]', 'DEVELOPMENT/PRODUCTION environment for webpack').option('-r, --reset-cache', 'reset react native packager').option('--skip-packager', 'run only storybook server').option('-i, --manual-id', 'allow multiple users to work with same storybook').parse(process.argv);
-
-var projectDir = _path2.default.resolve();
-var configDir = _path2.default.resolve(_commander2.default.configDir || './storybook');
-var listenAddr = [_commander2.default.port];
-if (_commander2.default.host) {
-  listenAddr.push(_commander2.default.host);
+const projectDir = path.resolve();
+const configDir = path.resolve(program.configDir || './storybook');
+const listenAddr = [program.port];
+if (program.host) {
+  listenAddr.push(program.host);
 }
 
-var server = new _server2.default({
-  projectDir: projectDir,
-  configDir: configDir,
-  environment: _commander2.default.environment,
-  manualId: _commander2.default.manualId,
-  secured: _commander2.default.secured
+const server = new Server({
+  projectDir,
+  configDir,
+  environment: program.environment,
+  manualId: program.manualId,
+  secured: program.secured,
 });
 
-server.listen.apply(server, listenAddr.concat([function (err) {
+server.listen(...listenAddr, err => {
   if (err) {
     throw err;
   }
-  var address = 'http://' + (_commander2.default.host || 'localhost') + ':' + _commander2.default.port + '/';
-  console.info('\nReact Native Storybook started on => ' + address + '\n'); // eslint-disable-line no-console
-}]));
+  const address = `http://${program.host || 'localhost'}:${program.port}/`;
+  console.info(`\nReact Native Storybook started on => ${address}\n`);
+  if (program.smokeTest) {
+    process.exit(0);
+  }
+});
 
-if (!_commander2.default.skipPackager) {
-  var symlinks = [];
+if (!program.skipPackager) {
+  let symlinks = [];
+
+  let roots = [projectDir];
+
+  if (program.root) {
+    roots = roots.concat(program.root.split(',').map(root => path.resolve(root)));
+  }
 
   try {
-    var findSymlinksPaths = require('react-native/local-cli/util/findSymlinksPaths'); // eslint-disable-line global-require
-    symlinks = findSymlinksPaths(_path2.default.join(projectDir, 'node_modules'), [projectDir]);
+    const findSymlinksPaths = require('react-native/local-cli/util/findSymlinksPaths'); // eslint-disable-line global-require
+    symlinks = findSymlinksPaths(path.join(projectDir, 'node_modules'), [projectDir]);
   } catch (e) {
-    console.warn('Unable to load findSymlinksPaths: ' + e.message);
+    console.warn(`Unable to load findSymlinksPaths: ${e.message}`);
   }
 
-  var projectRoots = (configDir === projectDir ? [configDir] : [configDir, projectDir]).concat(symlinks);
+  let projectRoots = (configDir === projectDir ? [configDir] : [configDir, projectDir]).concat(
+    symlinks
+  );
 
-  var cliCommand = 'node node_modules/react-native/local-cli/cli.js start';
-  if (_commander2.default.haul) {
-    cliCommand = 'node node_modules/.bin/haul start --config ' + _commander2.default.haul + ' --platform all';
+  if (program.projectRoots) {
+    projectRoots = projectRoots.concat(
+      program.projectRoots.split(',').map(root => path.resolve(root))
+    );
+  }
+
+  let cliCommand = 'react-native start';
+  if (program.haul) {
+    const platform = program.platform || 'all';
+    cliCommand = `haul start --config ${program.haul} --platform ${platform}`;
   }
   // RN packager
-  _shelljs2.default.exec([cliCommand, '--projectRoots ' + projectRoots.join(','), '--root ' + projectDir, _commander2.default.resetCache && '--reset-cache'].filter(function (x) {
-    return x;
-  }).join(' '), { async: true });
+  shelljs.exec(
+    [
+      cliCommand,
+      `--projectRoots ${projectRoots.join(',')}`,
+      `--root ${roots.join(',')}`,
+      program.resetCache && '--reset-cache',
+      program.packagerPort && `--port=${program.packagerPort}`,
+    ]
+      .filter(x => x)
+      .join(' '),
+    { async: true }
+  );
 }

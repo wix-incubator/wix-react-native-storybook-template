@@ -1,22 +1,11 @@
-'use strict';
+import React from 'react';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var styles = {
+const styles = {
   main: {
     margin: 15,
     maxWidth: 600,
     lineHeight: 1.4,
-    fontFamily: '"Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif'
+    fontFamily: '"Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif',
   },
 
   code: {
@@ -26,95 +15,44 @@ var styles = {
     border: '1px solid #eae9e9',
     borderRadius: 4,
     backgroundColor: '#f3f2f2',
-    color: '#3a3a3a'
+    color: '#3a3a3a',
   },
 
   codeBlock: {
     backgroundColor: '#f3f2f2',
     padding: '1px 10px',
-    margin: '10px 0'
-  }
+    margin: '10px 0',
+  },
 };
 
-var PreviewHelp = function PreviewHelp() {
-  return _react2.default.createElement(
-    'div',
-    { style: styles.main },
-    _react2.default.createElement(
-      'h1',
-      null,
-      'Welcome to storybook'
-    ),
-    _react2.default.createElement(
-      'p',
-      null,
-      'This is a UI component dev environment for your app.'
-    ),
-    _react2.default.createElement(
-      'p',
-      null,
-      'We\'ve added some basic stories inside the ',
-      _react2.default.createElement(
-        'span',
-        { style: styles.code },
-        'storybook/stories'
-      ),
-      ' ',
-      'directory. A story is a single state of one or more UI components. You can have as many stories as you want. Basically a story is like a visual test case.'
-    ),
-    _react2.default.createElement(
-      'p',
-      null,
-      'To see your Storybook stories on the device, you should start your mobile app for the',
-      ' ',
-      _react2.default.createElement(
-        'span',
-        { style: styles.code },
-        '<platform>'
-      ),
-      ' of your choice (typically ios or android). (Note that due to an implementation detail, your stories will only show up in the left-pane after your device has connected to this storybook server.)'
-    ),
-    _react2.default.createElement(
-      'p',
-      null,
-      'For ',
-      _react2.default.createElement(
-        'span',
-        { style: styles.code },
-        'create-react-native-app'
-      ),
-      ' apps:'
-    ),
-    _react2.default.createElement(
-      'div',
-      { style: styles.codeBlock },
-      _react2.default.createElement(
-        'pre',
-        { style: styles.instructionsCode },
-        'npm run <platform>'
-      )
-    ),
-    _react2.default.createElement(
-      'p',
-      null,
-      'For ',
-      _react2.default.createElement(
-        'span',
-        { style: styles.code },
-        'react-native init'
-      ),
-      ' apps:'
-    ),
-    _react2.default.createElement(
-      'div',
-      { style: styles.codeBlock },
-      _react2.default.createElement(
-        'pre',
-        { style: styles.instructionsCode },
-        'react-native run-<platform>'
-      )
-    )
-  );
-};
+const PreviewHelp = () => (
+  <div style={styles.main}>
+    <h1>Welcome to storybook</h1>
+    <p>This is a UI component dev environment for your app.</p>
+    <p>
+      We've added some basic stories inside the {<span style={styles.code}>storybook/stories</span>}{' '}
+      directory. A story is a single state of one or more UI components. You can have as many
+      stories as you want. Basically a story is like a visual test case.
+    </p>
+    <p>
+      To see your Storybook stories on the device, you should start your mobile app for the{' '}
+      <span style={styles.code}>&lt;platform&gt;</span> of your choice (typically ios or android).
+      (Note that due to an implementation detail, your stories will only show up in the left-pane
+      after your device has connected to this storybook server.)
+    </p>
+    <p>
+      For <span style={styles.code}>create-react-native-app</span> apps:
+    </p>
+    <div style={styles.codeBlock}>
+      <pre style={styles.instructionsCode}>npm run &lt;platform&gt;</pre>
+    </div>
+    <p>
+      For <span style={styles.code}>react-native init</span> apps:
+    </p>
+    <div style={styles.codeBlock}>
+      <pre style={styles.instructionsCode}>react-native run-&lt;platform&gt;</pre>
+    </div>
+  </div>
+);
 
-exports.default = PreviewHelp;
+export { PreviewHelp as default };

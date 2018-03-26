@@ -1,187 +1,104 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _assign = require('babel-runtime/core-js/object/assign');
-
-var _assign2 = _interopRequireDefault(_assign);
-
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactNative = require('react-native');
-
-var _urlParse = require('url-parse');
-
-var _urlParse2 = _interopRequireDefault(_urlParse);
-
-var _addons = require('@storybook/addons');
-
-var _addons2 = _interopRequireDefault(_addons);
-
-var _channelWebsocket = require('@storybook/channel-websocket');
-
-var _channelWebsocket2 = _interopRequireDefault(_channelWebsocket);
-
-var _events = require('events');
-
-var _story_store = require('./story_store');
-
-var _story_store2 = _interopRequireDefault(_story_store);
-
-var _story_kind = require('./story_kind');
-
-var _story_kind2 = _interopRequireDefault(_story_kind);
-
-var _OnDeviceUI = require('./components/OnDeviceUI');
-
-var _OnDeviceUI2 = _interopRequireDefault(_OnDeviceUI);
-
-var _StoryView = require('./components/StoryView');
-
-var _StoryView2 = _interopRequireDefault(_StoryView);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 /* eslint no-underscore-dangle: 0 */
 
-var Preview = function () {
-  function Preview() {
-    (0, _classCallCheck3.default)(this, Preview);
+import React from 'react';
+import { NativeModules } from 'react-native';
+import parse from 'url-parse';
+import addons from '@storybook/addons';
+import createChannel from '@storybook/channel-websocket';
+import { EventEmitter } from 'events';
+import { StoryStore, ClientApi } from '@storybook/core/client';
+import OnDeviceUI from './components/OnDeviceUI';
+import StoryView from './components/StoryView';
 
+export default class Preview {
+  constructor() {
     this._addons = {};
     this._decorators = [];
-    this._stories = new _story_store2.default();
-    this._events = new _events.EventEmitter();
+    this._events = new EventEmitter();
+    this._stories = new StoryStore();
+    this._clientApi = new ClientApi({ storyStore: this._stories });
+
+    [
+      'storiesOf',
+      'setAddon',
+      'addDecorator',
+      'addParameters',
+      'clearDecorators',
+      'getStorybook',
+    ].forEach(method => {
+      this[method] = this._clientApi[method].bind(this._clientApi);
+    });
   }
 
-  (0, _createClass3.default)(Preview, [{
-    key: 'storiesOf',
-    value: function storiesOf(kind, module) {
-      if (module && module.hot) {
-        // TODO remove the kind on dispose
+  configure(loadStories, module) {
+    loadStories();
+    if (module && module.hot) {
+      module.hot.accept(() => this._sendSetStories());
+      // TODO remove all global decorators on dispose
+    }
+  }
+
+  getStorybookUI(params = {}) {
+    return () => {
+      let webUrl = null;
+      let channel = null;
+
+      try {
+        channel = addons.getChannel();
+      } catch (e) {
+        // getChannel throws if the channel is not defined,
+        // which is fine in this case (we will define it below)
       }
-      return new _story_kind2.default(this._stories, this._addons, this._decorators, kind);
-    }
-  }, {
-    key: 'setAddon',
-    value: function setAddon(addon) {
-      (0, _assign2.default)(this._addons, addon);
-    }
-  }, {
-    key: 'addDecorator',
-    value: function addDecorator(decorator) {
-      this._decorators.push(decorator);
-    }
-  }, {
-    key: 'configure',
-    value: function configure(loadStories, module) {
-      var _this = this;
 
-      loadStories();
-      if (module && module.hot) {
-        module.hot.accept(function () {
-          return _this._sendSetStories();
-        });
-        // TODO remove all global decorators on dispose
-      }
-    }
-  }, {
-    key: 'getStorybook',
-    value: function getStorybook() {
-      var _this2 = this;
+      if (!channel || params.resetStorybook) {
+        if (params.onDeviceUI && !params.useWebsockets) {
+          channel = this._events;
+        } else {
+          const host = params.host || parse(NativeModules.SourceCode.scriptURL).hostname;
+          const port = params.port !== false ? `:${params.port || 7007}` : '';
 
-      return this._stories.getStoryKinds().map(function (kind) {
-        var stories = _this2._stories.getStories(kind).map(function (name) {
-          var render = _this2._stories.getStory(kind, name);
-          return { name: name, render: render };
-        });
-        return { kind: kind, stories: stories };
-      });
-    }
-  }, {
-    key: 'getStorybookUI',
-    value: function getStorybookUI() {
-      var _this3 = this;
+          const query = params.query || '';
+          const { secured } = params;
+          const websocketType = secured ? 'wss' : 'ws';
+          const httpType = secured ? 'https' : 'http';
 
-      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      return function () {
-        var webUrl = null;
-        var channel = null;
-
-        try {
-          channel = _addons2.default.getChannel();
-        } catch (e) {
-          // getChannel throws if the channel is not defined,
-          // which is fine in this case (we will define it below)
+          const url = `${websocketType}://${host}${port}/${query}`;
+          webUrl = `${httpType}://${host}${port}`;
+          channel = createChannel({ url });
         }
 
-        if (params.resetStorybook || !channel) {
-          var host = params.host || (0, _urlParse2.default)(_reactNative.NativeModules.SourceCode.scriptURL).hostname;
-          var port = params.port !== false ? ':' + (params.port || 7007) : '';
+        addons.setChannel(channel);
 
-          var query = params.query || '';
-          var secured = params.secured;
-          var websocketType = secured ? 'wss' : 'ws';
-          var httpType = secured ? 'https' : 'http';
+        channel.emit('channelCreated');
+      }
 
-          var url = websocketType + '://' + host + port + '/' + query;
-          webUrl = httpType + '://' + host + port;
-          channel = (0, _channelWebsocket2.default)({ url: url });
-          _addons2.default.setChannel(channel);
-        }
-        channel.on('getStories', function () {
-          return _this3._sendSetStories();
-        });
-        channel.on('setCurrentStory', function (d) {
-          return _this3._selectStory(d);
-        });
-        _this3._events.on('setCurrentStory', function (d) {
-          return _this3._selectStory(d);
-        });
-        _this3._sendSetStories();
-        _this3._sendGetCurrentStory();
+      channel.on('getStories', () => this._sendSetStories());
+      channel.on('setCurrentStory', d => this._selectStory(d));
+      this._events.on('setCurrentStory', d => this._selectStory(d));
+      this._sendSetStories();
+      this._sendGetCurrentStory();
 
-        // finally return the preview component
-        return params.onDeviceUI ? _react2.default.createElement(_OnDeviceUI2.default, { stories: _this3._stories, events: _this3._events, url: webUrl }) : _react2.default.createElement(_StoryView2.default, { url: webUrl, events: _this3._events });
-      };
-    }
-  }, {
-    key: '_sendSetStories',
-    value: function _sendSetStories() {
-      var channel = _addons2.default.getChannel();
-      var stories = this._stories.dumpStoryBook();
-      channel.emit('setStories', { stories: stories });
-    }
-  }, {
-    key: '_sendGetCurrentStory',
-    value: function _sendGetCurrentStory() {
-      var channel = _addons2.default.getChannel();
-      channel.emit('getCurrentStory');
-    }
-  }, {
-    key: '_selectStory',
-    value: function _selectStory(selection) {
-      var kind = selection.kind,
-          story = selection.story;
+      // finally return the preview component
+      return params.onDeviceUI
+        ? <OnDeviceUI stories={this._stories} events={this._events} url={webUrl} />
+        : <StoryView url={webUrl} events={this._events} />;
+    };
+  }
 
-      var storyFn = this._stories.getStory(kind, story);
-      this._events.emit('story', storyFn, selection);
-    }
-  }]);
-  return Preview;
-}();
+  _sendSetStories() {
+    const channel = addons.getChannel();
+    const stories = this._stories.dumpStoryBook();
+    channel.emit('setStories', { stories });
+  }
 
-exports.default = Preview;
+  _sendGetCurrentStory() {
+    const channel = addons.getChannel();
+    channel.emit('getCurrentStory');
+  }
+
+  _selectStory(selection) {
+    const { kind, story } = selection;
+    const storyFn = this._stories.getStoryWithContext(kind, story);
+    this._events.emit('story', storyFn, selection);
+  }
+}
