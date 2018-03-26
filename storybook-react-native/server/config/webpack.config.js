@@ -1,9 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
-import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModulesPlugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { OccurenceOrderPlugin, includePaths, excludePaths, nodeModulesPaths } from './utils';
+import { OccurenceOrderPlugin, includePaths, excludePaths } from './utils';
 
 const getConfig = options => ({
   devtool: '#cheap-module-eval-source-map',
@@ -26,10 +25,9 @@ const getConfig = options => ({
     new OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
-    new WatchMissingNodeModulesPlugin(nodeModulesPaths),
   ],
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.jsx?$/,
         loader: require.resolve('babel-loader'),
@@ -41,10 +39,10 @@ const getConfig = options => ({
         test: /\.md$/,
         use: [
           {
-            loader: require.resolve('html-loader'),
+            loader: 'html-loader',
           },
           {
-            loader: require.resolve('markdown-loader'),
+            loader: 'markdown-loader',
           },
         ],
       },

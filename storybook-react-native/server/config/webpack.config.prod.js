@@ -47,7 +47,7 @@ const getConfig = options => {
       }),
     ],
     module: {
-      rules: [
+      loaders: [
         {
           test: /\.jsx?$/,
           loader: require.resolve('babel-loader'),
@@ -59,10 +59,10 @@ const getConfig = options => {
           test: /\.md$/,
           use: [
             {
-              loader: require.resolve('html-loader'),
+              loader: 'html-loader',
             },
             {
-              loader: require.resolve('markdown-loader'),
+              loader: 'markdown-loader',
             },
           ],
         },

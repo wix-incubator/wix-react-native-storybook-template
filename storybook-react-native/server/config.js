@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import JSON5 from 'json5';
 import findCacheDir from 'find-cache-dir';
-import { createDefaultWebpackConfig } from '@storybook/core/server';
 
 // avoid ESLint errors
 const logger = console;
@@ -81,13 +80,13 @@ export default function(configType, baseConfig, projectDir, configDir) {
         ? path.resolve(babelConfigDir, babelConfig.extends)
         : path.resolve(babelConfig.extends);
     }
-    config.module.rules[0].query = babelConfig;
+    config.module.loaders[0].query = babelConfig;
   }
 
   // This is a feature of `babel-loader` for webpack (not Babel itself).
   // It enables a cache directory for faster-rebuilds
   // `find-cache-dir` will create the cache directory under the node_modules directory.
-  config.module.rules[0].query.cacheDirectory = findCacheDir({
+  config.module.loaders[0].query.cacheDirectory = findCacheDir({
     name: 'react-storybook',
   });
 
@@ -102,21 +101,19 @@ export default function(configType, baseConfig, projectDir, configDir) {
     config.entry.manager.unshift(storybookDefaultAddonsPath);
   }
 
-  const defaultConfig = createDefaultWebpackConfig(config);
-
   // Check whether user has a custom webpack config file and
   // return the (extended) base configuration if it's not available.
-  const customConfigPath = path.resolve(configDir, 'webpack.config.js');
+  let customConfigPath = path.resolve(configDir, 'webpack.config.js');
   if (!fs.existsSync(customConfigPath)) {
     logger.info('=> Using default webpack setup based on "Create React App".');
-    return defaultConfig;
+    customConfigPath = path.resolve(__dirname, './config/defaults/webpack.config.js');
   }
 
   const customConfig = require(customConfigPath); // eslint-disable-line
 
   if (typeof customConfig === 'function') {
     logger.info('=> Loading custom webpack config (full-control mode).');
-    return customConfig(config, configType, defaultConfig);
+    return customConfig(config, configType);
   }
 
   logger.info('=> Loading custom webpack config.');
@@ -132,9 +129,9 @@ export default function(configType, baseConfig, projectDir, configDir) {
     plugins: [...config.plugins, ...(customConfig.plugins || [])],
     module: {
       ...config.module,
-      // We need to use our and custom rules.
+      // We need to use our and custom loaders.
       ...customConfig.module,
-      rules: [...config.module.rules, ...(customConfig.module.rules || [])],
+      loaders: [...config.module.loaders, ...(customConfig.module.loaders || [])],
     },
   };
 }

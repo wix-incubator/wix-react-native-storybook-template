@@ -44,9 +44,10 @@ export default class StoryView extends Component {
       return this.renderHelp();
     }
     const { kind, story } = this.state.selection;
+    const context = { kind, story };
     return (
       <View key={`${kind}:::${story}`} style={style.main}>
-        {this.state.storyFn()}
+        {this.state.storyFn(context)}
       </View>
     );
   }

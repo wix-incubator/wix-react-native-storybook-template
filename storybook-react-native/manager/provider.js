@@ -16,24 +16,19 @@ export default class ReactProvider extends Provider {
       this.channel = undefined;
     }
 
-    const { secured, host, port } = options;
+    const { secured } = options;
     const websocketType = secured ? 'wss' : 'ws';
     let url = `${websocketType}://${domain}`;
     if (options.manualId) {
-      this.pairedId = uuid();
+      const pairedId = uuid().substr(-6);
+
+      this.pairedId = pairedId;
       url += `/pairedId=${this.pairedId}`;
     }
 
     if (!this.channel) {
       this.channel = createChannel({ url });
       addons.setChannel(this.channel);
-
-      this.channel.emit('channelCreated', {
-        pairedId: this.pairedId,
-        secured,
-        host,
-        port,
-      });
     }
   }
 
@@ -47,6 +42,16 @@ export default class ReactProvider extends Provider {
     const renderPreview = addons.getPreview();
 
     const innerPreview = renderPreview ? renderPreview(kind, story) : null;
+
+    if (this.options.manualId) {
+      return (
+        <div>
+          Your ID: {this.pairedId}
+          {innerPreview}
+        </div>
+      );
+    }
+
     return innerPreview || <PreviewHelp />;
   }
 

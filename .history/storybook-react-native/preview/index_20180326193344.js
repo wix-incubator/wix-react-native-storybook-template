@@ -70,6 +70,7 @@ export default class Preview {
         // which is fine in this case (we will define it below)
       }
 
+
       if (!channel || params.resetStorybook) {
         if (params.onDeviceUI && !params.useWebsockets) {
           channel = this._events;

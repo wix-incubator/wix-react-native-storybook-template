@@ -78,7 +78,9 @@ if (!program.skipPackager) {
   let cliCommand = 'react-native start';
   if (program.haul) {
     const platform = program.platform || 'all';
-    cliCommand = `haul start --config ${program.haul} --platform ${platform}`;
+    cliCommand = `haul start --config ${
+      program.haul
+    } --platform ${platform}`;
   }
   // RN packager
   shelljs.exec(
