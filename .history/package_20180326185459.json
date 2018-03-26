@@ -1,6 +1,6 @@
 {
   "name": "wix-react-native-storybook-server",
-  "version": "3.0.2",
+  "version": "3.0.1",
   "description": "Server to host storybook for react native apps",
   "main": "index.js",
   "bin": {
@@ -15,7 +15,7 @@
   "author": "Gytis Vinclovas",
   "license": "MIT",
   "dependencies": {
-    "@storybook/react-native": "^3.4.0-alpha.9",
+    "@storybook/react-native": "^3.3.0",
     "@storybook/addon-knobs": "^3.2.8",
     "babel-plugin-react-docgen": "^1.5.0",
     "babel-preset-es2015": "^6.24.1",
