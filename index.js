@@ -1,5 +1,5 @@
 global.STORYBOOK_REACT_CLASSES = {};
-import {configure, getStorybookUI} from './storybook-react-native';
+import {configure, getStorybookUI} from '@storybook/react-native';
 
 import './add-decorators';
 

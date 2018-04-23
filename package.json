@@ -1,37 +1,19 @@
 {
   "name": "wix-react-native-storybook-server",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "Server to host storybook for react native apps",
   "main": "index.js",
-  "bin": {
-    "wix-storybook-install": "./bin/dev-install.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./storybook-react-native/bin/storybook.js start -p ${PORT:-7007} -i -r --skip-packager --secured -e PRODUCTION -c ./server",
-    "prestart": "node ./node_modules/webpack/bin/webpack.js --config ./server/webpack.config.js",
-    "develop": "storybook start -p 7007 --skip-packager -c ./server"
-  },
   "author": "Gytis Vinclovas",
   "license": "MIT",
   "dependencies": {
-    "@storybook/react-native": "^3.4.0-alpha.9",
+    "@storybook/react-native": "^3.4.2",
     "@storybook/addon-knobs": "^3.2.8",
     "babel-plugin-react-docgen": "^1.5.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2016": "^6.24.1",
-    "babel-preset-react-native": "^2.0.0",
     "es6-symbol": "^3.1.1",
-    "loki": "^0.7.0",
-    "ncp": "^2.0.0",
-    "qrcode.react": "^0.7.1",
     "react": "^16.0.0",
     "react-dom": "^16.2.0",
     "storybook-addon-docgen": "^4.0.0",
     "storybook-addon-smart-knobs": "^3.0.1",
     "storybook-usage": "^3.0.0"
-  },
-  "devDependencies": {
-    "babel-loader": "^7.1.2"
   }
 }

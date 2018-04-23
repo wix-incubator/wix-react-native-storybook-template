@@ -1,4 +1,8 @@
 # storybook Server
+
+Nothing below makes sense anymore. Update needed.
+
+
 Storybook server is a project used to host Storybook for React Native instance. It includes addons, and quick way to configure storybook.
 This project also has a boilerplate that you can use to work locally.
 
