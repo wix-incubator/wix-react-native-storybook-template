@@ -1,6 +1,6 @@
 {
   "name": "wix-react-native-storybook-server",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Server to host storybook for react native apps",
   "main": "index.js",
   "author": "Gytis Vinclovas",
