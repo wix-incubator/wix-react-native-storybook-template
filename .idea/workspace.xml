@@ -1,46 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce1cdde-cb27-44f8-b6d1-d6e4c9db6770" name="Default" comment="removing old files.">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/package_20180326185459.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/package_20180326190115.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/package_20180326190126.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/package_20180326193354.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/storybook-react-native/preview/components/OnDeviceUI/index_20180326193103.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/storybook-react-native/preview/components/OnDeviceUI/index_20180326193240.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/storybook-react-native/preview/components/OnDeviceUI/index_20180326193247.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/storybook-react-native/preview/components/OnDeviceUI/style_20180326193103.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/storybook-react-native/preview/components/OnDeviceUI/style_20180326193313.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/storybook-react-native/preview/index_20180326193104.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/storybook-react-native/preview/index_20180326193344.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.history/storybook-react-native/preview/index_20180326193348.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Procfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/dev-install.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/channels/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/development/local/.babelrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/development/local/addons.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/development/local/index.android.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/development/local/index.ios.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/development/local/storybook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/development/stories/example/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/development/stories/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/navigation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rn-pair/dist/components/QRCode/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rn-pair/dist/components/QRCode/style.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rn-pair/dist/containers/QRCodePanel/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rn-pair/dist/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rn-pair/dist/manager.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rn-pair/register.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/addons.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/webpack.config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/manager.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="" />
+    <list default="true" id="cce1cdde-cb27-44f8-b6d1-d6e4c9db6770" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/bin/storybook-build.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/bin/storybook-start.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/bin/storybook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/manager/components/PreviewHelp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/manager/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/manager/provider.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/components/OnDeviceUI/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/components/OnDeviceUI/menu_close.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/components/OnDeviceUI/menu_open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/components/OnDeviceUI/style.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/components/StoryListView/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/components/StoryListView/style.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/components/StoryView/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/components/StoryView/style.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/story_kind.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/preview/story_store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/addons.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/config/babel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/config/babel.prod.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/config/defaults/webpack.config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/config/utils.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/config/webpack.config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/config/webpack.config.prod.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/index.html.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/storybook-react-native/server/middleware.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add-decorators.js" afterPath="$PROJECT_DIR$/add-decorators.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addons.js" afterPath="$PROJECT_DIR$/addons.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -64,8 +55,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+            <state relative-caret-position="38">
+              <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -105,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/add-decorators.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
-              <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+              <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -343,20 +334,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1498717667002</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Server webpack config moved.">
-      <created>1499175898834</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1499175898834</updated>
-    </task>
-    <task id="LOCAL-00006" summary="updated version.">
-      <created>1499180797292</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1499180797292</updated>
     </task>
     <task id="LOCAL-00007" summary="Fixed webpack.">
       <created>1499254779690</created>
@@ -687,7 +664,21 @@
       <option name="project" value="LOCAL" />
       <updated>1522079707395</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="removing old files.">
+      <created>1524473658865</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1524473658865</updated>
+    </task>
+    <task id="LOCAL-00055" summary="fixed import.">
+      <created>1524475398626</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1524475398626</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -762,7 +753,6 @@
     <MESSAGE value="Adding docpanel." />
     <MESSAGE value="updated dependency." />
     <MESSAGE value="Fixed start issue." />
-    <MESSAGE value="fixed import." />
     <MESSAGE value="fixed server webpack" />
     <MESSAGE value="Added local storybook install." />
     <MESSAGE value="Added missing file." />
@@ -784,7 +774,8 @@
     <MESSAGE value="readed react-native storybook." />
     <MESSAGE value="version bump." />
     <MESSAGE value="removing old files." />
-    <option name="LAST_COMMIT_MESSAGE" value="removing old files." />
+    <MESSAGE value="fixed import." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed import." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1093,14 +1084,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -1109,18 +1092,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/add-decorators.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
-          <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+          <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+        <state relative-caret-position="38">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding />
         </state>
       </provider>
