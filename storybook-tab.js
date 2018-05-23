@@ -25,7 +25,7 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
         .then(() => {
           this.setState({
             UI: getStorybook(
-              storiesGenerator, module, {host: 'localhost', port: '7007', ...options}
+              resolveFunction, module, {host: 'localhost', port: '7007', ...options}
             )()
           });
         })
@@ -45,7 +45,7 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
           addons.setChannel(channel);
 
           this.setState({
-            UI: getStorybook(() => require('../../storybook/stories/index'), module, {onDeviceUI: true, ...options})(),
+            UI: getStorybook(resolveFunction, module, {onDeviceUI: true, ...options})(),
           });
 
           if (currentStory !== 'null') {
