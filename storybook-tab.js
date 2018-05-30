@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {AsyncStorage, View} from 'react-native';
 import {getStorybook} from './index';
 const ASYNC_STORAGE_KEY = 'SELECTED_TAB';
-
+import RNKnobs from 'react-native-storybook-knobs';
 
 export default function getStorybookTab(resolveFunction, module, options = {}) {
 
@@ -19,6 +19,7 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
 
       this.state = {
         UI: null,
+        knobs: null,
       };
 
       fetch('http://localhost:7007')
@@ -46,6 +47,7 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
 
           this.setState({
             UI: getStorybook(resolveFunction, module, {onDeviceUI: true, ...options})(),
+            knobs: <RNKnobs/>,
           });
 
           if (currentStory !== 'null') {
@@ -63,8 +65,12 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
     render() {
       return (
         <View style={{flex: 1}}>
-          <View style={{height: 20, width: '100%', backgroundColor: 'black'}}/>
-          {this.state.UI}
+          <View>
+            {this.state.knobs}
+          </View>
+          <View style={{flex: 1}}>
+            {this.state.UI}
+          </View>
         </View>
       );
     }
@@ -72,3 +78,4 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
 
   return Storybook;
 }
+
