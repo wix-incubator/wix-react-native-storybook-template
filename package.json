@@ -10,6 +10,7 @@
     "react-dom": "*"
   },
   "dependencies": {
+    "@storybook/addon-info": "^3.4.6",
     "@storybook/addon-knobs": "4.0.0-alpha.7",
     "@storybook/react-native": "4.0.0-alpha.7",
     "react-native-storybook-knobs": "^0.0.3",
