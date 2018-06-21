@@ -57,7 +57,7 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
     }
 
     onNavigatorEvent(e) {
-      if (e.id === 'bottomTabSelected') {
+      if (e.id === 'bottomTabSelected' && e.selectedTabIndex !== undefined && e.selectedTabIndex !== null) {
         AsyncStorage.setItem(ASYNC_STORAGE_KEY, e.selectedTabIndex.toString());
       }
     }
