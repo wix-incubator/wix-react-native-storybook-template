@@ -1,6 +1,6 @@
 {
   "name": "wix-react-native-storybook-server",
-  "version": "5.0.8",
+  "version": "5.0.9",
   "description": "Server to host storybook for react native apps",
   "main": "index.js",
   "author": "Gytis Vinclovas",
@@ -10,9 +10,6 @@
     "react-dom": "*"
   },
   "dependencies": {
-    "@storybook/addon-knobs": "4.0.0-alpha.9",
-    "@storybook/react-native": "4.0.0-alpha.9",
-    "react-native-storybook-knobs": "^0.0.3",
-    "storybook-usage": "^3.0.0"
+    "@storybook/react-native": "4.0.0-alpha.9"
   }
 }

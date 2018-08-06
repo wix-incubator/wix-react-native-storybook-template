@@ -2,7 +2,6 @@ import React, {PureComponent} from 'react';
 import {AsyncStorage, View} from 'react-native';
 import {getStorybook} from './index';
 const ASYNC_STORAGE_KEY = 'SELECTED_TAB';
-import RNKnobs from 'react-native-storybook-knobs';
 
 export default function getStorybookTab(resolveFunction, module, options = {}) {
 
@@ -34,7 +33,13 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
           //eslint-disable-next-line no-console
           console.log('Storybook server is not running');
 
-          const currentStory = await AsyncStorage.getItem('currentStory');
+          let currentStory = '';
+          try {
+            currentStory = await AsyncStorage.getItem('currentStory');
+          } catch (e) {
+
+          }
+
 
           const {EventEmitter} = require('events');
           const channel = new EventEmitter();
@@ -47,10 +52,9 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
 
           this.setState({
             UI: getStorybook(resolveFunction, module, {onDeviceUI: true, ...options})(),
-            knobs: <RNKnobs/>,
           });
 
-          if (currentStory !== 'null') {
+          if (currentStory && currentStory !== 'null') {
             channel.emit('setCurrentStory', JSON.parse(currentStory));
           }
         });
@@ -65,12 +69,7 @@ export default function getStorybookTab(resolveFunction, module, options = {}) {
     render() {
       return (
         <View style={{flex: 1}}>
-          <View>
-            {this.state.knobs}
-          </View>
-          <View style={{flex: 1}}>
-            {this.state.UI}
-          </View>
+          {this.state.UI}
         </View>
       );
     }
