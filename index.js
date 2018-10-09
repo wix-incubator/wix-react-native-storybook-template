@@ -1,19 +1,18 @@
-global.STORYBOOK_REACT_CLASSES = {};
 import {configure, getStorybookUI} from '@storybook/react-native';
 
 import storybookTab from './storybook-tab';
+import addDecorators from './add-decorators';
 
-import './add-decorators';
-
-export function configureStoriesWithDecorators(resolveFunction, moduleName) {
+export function configureStoriesWithDecorators(resolveFunction, moduleName, docgen) {
+  addDecorators(docgen);
   configure(resolveFunction, moduleName);
 }
 
-export function getStorybook(resolveFunction, moduleName, options = {port: 7007, host: 'localhost'}) {
-  configureStoriesWithDecorators(resolveFunction, moduleName);
+export function getStorybook(resolveFunction, moduleName, options, docgen) {
+  configureStoriesWithDecorators(resolveFunction, moduleName, docgen);
   return getStorybookUI(options);
 }
 
-export function getStorybookTab(resolveFunction, moduleName, options) {
-  return storybookTab(resolveFunction, moduleName, options);
+export function getStorybookTab(resolveFunction, moduleName, options, docgen) {
+  return storybookTab(resolveFunction, moduleName, options, docgen);
 }
