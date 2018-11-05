@@ -6,8 +6,8 @@ import './rn-addons';
 
 const ASYNC_STORAGE_KEY = 'SELECTED_TAB';
 
-export default function getStorybookTab(resolveFunction, module, options, docgen) {
-  const StorybookUI = getStorybook(resolveFunction, module, options, docgen);
+export default function getStorybookTab(resolveFunction, module, options) {
+  const StorybookUI = getStorybook(resolveFunction, module, options);
 
   class Storybook extends PureComponent {
     static get options() {

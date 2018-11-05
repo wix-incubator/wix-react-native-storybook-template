@@ -6,10 +6,10 @@
   "author": "Gytis Vinclovas",
   "license": "MIT",
   "dependencies": {
-    "@storybook/addon-knobs": "^4.0.0-alpha.24",
-    "@storybook/addon-ondevice-knobs": "^4.0.0-alpha.24",
-    "@storybook/addon-ondevice-notes": "^4.0.0-alpha.24",
-    "@storybook/react-native": "^4.0.0-alpha.24",
+    "@storybook/addon-knobs": "^4.0.2",
+    "@storybook/addon-ondevice-knobs": "^4.0.2",
+    "@storybook/addon-ondevice-notes": "^4.0.2",
+    "@storybook/react-native": "^4.0.2",
     "storybook-usage": "^3.0.0"
   }
 }
