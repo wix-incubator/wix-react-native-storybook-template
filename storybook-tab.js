@@ -13,10 +13,12 @@ export default function getStorybookTab(resolveFunction, module, options) {
     static get options() {
       return {
         statusBar: {
-          visible: false
+          visible: false,
+          drawBehind: true,
         },
         topBar: {
-          visible: false
+          visible: false,
+          drawBehind: true,
         }
       };
     }
