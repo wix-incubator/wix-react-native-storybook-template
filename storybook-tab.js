@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {AsyncStorage, View} from 'react-native';
-import {getStorybook} from './index';
+import {getStorybook} from './get-storybook';
 
 import './rn-addons';
 
