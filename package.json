@@ -1,6 +1,6 @@
 {
   "name": "wix-react-native-storybook-template",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Config we use for React Native Storybook",
   "main": "index.js",
   "author": "Gytis Vinclovas",
@@ -10,6 +10,6 @@
     "@storybook/addon-ondevice-knobs": "^5.1.0",
     "@storybook/addon-ondevice-notes": "^5.1.0",
     "@storybook/react-native": "^5.1.0",
-    "storybook-usage": "^4.0.7"
+    "storybook-usage": "^4.0.8"
   }
 }
