@@ -1,15 +1,15 @@
 {
   "name": "wix-react-native-storybook-template",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Config we use for React Native Storybook",
   "main": "index.js",
   "author": "Gytis Vinclovas",
   "license": "MIT",
   "dependencies": {
-    "@storybook/addon-knobs": "^5.1.0",
-    "@storybook/addon-ondevice-knobs": "^5.1.0",
-    "@storybook/addon-ondevice-notes": "^5.1.0",
-    "@storybook/react-native": "^5.1.0",
+    "@storybook/addon-knobs": "5.2.0-alpha.33",
+    "@storybook/addon-ondevice-knobs": "5.2.0-alpha.33",
+    "@storybook/addon-ondevice-notes": "5.2.0-alpha.33",
+    "@storybook/react-native": "5.2.0-alpha.33",
     "storybook-usage": "^4.0.8"
   }
 }
