@@ -1,6 +1,8 @@
-import storybookTab from './storybook-tab';
-
 import {storiesOf as storybookStoriesOf} from '@storybook/react-native';
+
+import storybookTab from './storybook-tab';
+import addDecorators from './add-decorators';
+
 export {configureStoriesWithDecorators, getStorybook} from './get-storybook';
 
 export function storiesOf(...args) {
