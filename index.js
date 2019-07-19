@@ -5,6 +5,8 @@ import addDecorators from './add-decorators';
 
 export {configureStoriesWithDecorators, getStorybook} from './get-storybook';
 
+export {linkTo} from './addon-link';
+
 export function storiesOf(...args) {
   return addDecorators(
     storybookStoriesOf(...args)
