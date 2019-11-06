@@ -6,5 +6,5 @@ export function configureStoriesWithDecorators(resolveFunction, moduleName) {
 
 export function getStorybook(resolveFunction, moduleName, options) {
   configureStoriesWithDecorators(resolveFunction, moduleName);
-  return getStorybookUI(options);
+  return getStorybookUI({...options, asyncStorage: require('@react-native-community/async-storage').default});
 }
