@@ -1,6 +1,6 @@
 {
   "name": "wix-react-native-storybook-template",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Config we use for React Native Storybook",
   "main": "index.js",
   "author": "Gytis Vinclovas",
