@@ -6,6 +6,8 @@ import addDecorators from './add-decorators';
 
 export {configureStoriesWithDecorators, getStorybook} from './get-storybook';
 
+global.Promise = require('promise');
+
 export function storiesOf(...args) {
   return addDecorators(
     storybookStoriesOf(...args)
