@@ -9,7 +9,6 @@
     "@storybook/addon-knobs": "5.3.0-alpha.39",
     "@storybook/addon-links": "5.3.0-alpha.39",
     "@storybook/addon-ondevice-knobs": "5.3.0-alpha.39",
-    "@storybook/addon-ondevice-notes": "5.3.0-alpha.39",
     "@storybook/react-native": "5.3.0-alpha.39",
     "core-js": "^3.0.1",
     "promise": "^8.0.3",
